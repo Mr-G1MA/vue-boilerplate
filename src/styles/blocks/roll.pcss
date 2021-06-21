@@ -1,0 +1,24 @@
+.roll{
+  position: absolute;
+  right: 0;
+  bottom: 10%;
+  width: 717px;
+  max-height: 103px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.roll__item{
+  max-width: 178px;
+  transition: .2s;
+  &.active,
+  &:hover {
+    border: 3px solid #f29400;
+  }
+}
+
+.roll__img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

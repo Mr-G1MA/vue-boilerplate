@@ -1,0 +1,38 @@
+.reviews__slider-btns{
+  display:flex;
+}
+
+.reviews__slider-btn{
+  width: 52px;
+  height: 52px;
+  border: 2px solid white;
+  position: relative;
+  border-radius: 50%;
+  margin-right: 28px;
+  opacity: .6;
+  background: transparent;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:before {
+    content: "";
+    width: 15px;
+    height: 20px;
+    display: block;
+    background: svg-load('arrow-down.svg', fill=white) center center / contain no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &--prev {
+    &:before {
+      transform: translate(-50%, -50%) rotate(-180deg);
+    }
+  }
+
+  &:hover{
+    opacity: 1;
+    transition: .3s;
+  }
+}

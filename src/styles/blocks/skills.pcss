@@ -1,0 +1,160 @@
+.skills__container{
+  display: flex;
+  flex-direction: column;
+  padding: 144px 0 147px;
+  position: relative;
+  
+  &:before {
+    content: "";
+    position: absolute;
+    background: url('~images/decor/hands.png') left bottom / contain no-repeat;
+    display: block;
+    bottom: -10%;
+    height: 100%;
+    width: 100%;
+    left: -16%;
+  }
+}
+
+.skills{
+  background: url("~images/bg/middle.png") center top / cover no-repeat;
+}
+
+.skills__title-name{
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 55px;
+}
+
+.values__wrapper {
+  position: relative;
+}
+
+.skills__title {
+  margin-bottom: 82px;
+  display: flex;
+  justify-content: center;
+}
+
+.skills__title-container {
+  width: 38%;
+  margin-left: 7%;
+}
+
+.skills__title-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.skills__graphs {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 6%;
+}
+
+.skills__graphs-container {
+  width: 54%;
+}
+
+.skill{
+  position: relative;
+  width: 144px;
+  height: 144px;
+}
+
+.skill__circle{
+  fill: transparent;
+
+  &--under{
+    stroke: rgba(233, 233, 233, 0.1);
+    stroke-width: 3px;
+  }
+
+  &--above{
+    stroke-width: 10px;
+    stroke-dasharray: 251;
+    stroke-dashoffset: 120;
+
+  }
+}
+
+.skill__title{
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.skills-row__list{
+  display: flex;
+  justify-content: space-between;
+}
+
+.skills-row__title{
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 35px;
+}
+
+
+
+.skills__item{
+  margin-bottom: 52px;
+  
+  &:last-child{
+    margin-bottom: 0;
+  }
+
+  &:nth-child(1){
+    & .skills-row__item{
+      &:nth-child(1){
+        & .skill__circle--above{
+          stroke-dashoffset: 187;
+        }
+      }
+      &:nth-child(2){
+        & .skill__circle--above{
+          stroke-dashoffset: 210;
+        }
+      }
+      &:nth-child(3){
+        & .skill__circle--above{
+          stroke-dashoffset: 64;
+        }
+      }
+      &:nth-child(4){
+        & .skill__circle--above{
+          stroke-dashoffset: 187;
+        }
+      }
+    }
+  }
+  &:nth-child(2){
+    & .skills-row__item{
+      &:nth-child(1){
+        & .skill__circle--above{
+          stroke-dashoffset: 215;
+        }
+      }
+      &:nth-child(2){
+        & .skill__circle--above{
+          stroke-dashoffset: 187;
+        }
+      }
+      &:nth-child(3){
+        & .skill__circle--above{
+          stroke-dashoffset: 125;
+        }
+      }
+      &:nth-child(4){
+        & .skill__circle--above{
+          stroke-dashoffset: 166;
+        }
+      }
+    }
+  }
+}
