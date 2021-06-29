@@ -1,0 +1,37 @@
+script(type="text/x-template")#reviews-slider
+  .reviews__slider
+    .reviews__slider-header
+      .section-title.reviews__title Что обо мне говорят
+      .reviews__slider-btns
+        button(
+          @click="slide('prev')"
+        ).reviews__slider-btn.reviews__slider-btn--prev
+        button(
+          @click="slide('next')"
+        ).reviews__slider-btn.reviews__slider-btn--next
+    swiper(ref="slider" :options="sliderOptions" v-show="resizeable").reviews__slider-list
+      swiper-slide.reviews__slider-item(v-for="item in reviews" :key="item.id")
+        .review 
+          .review__text
+            p {{item.text}}
+          .review__user
+            .user-display
+              .user-display__avatar
+                .user-display__avatar-style
+                  img(:src="item.image").user__avatar-img
+              .user-display__desc
+                .user-display__name {{item.name}}
+                .user-display__pos {{item.pos}}
+    swiper(ref="slider" :options="otherSliderOptions" v-show="!resizeable").reviews__slider-list
+      swiper-slide.reviews__slider-item(v-for="item in reviews" :key="item.id")
+        .review 
+          .review__text
+            p {{item.text}}
+          .review__user
+            .user-display
+              .user-display__avatar
+                .user-display__avatar-style
+                  img(:src="item.image").user__avatar-img
+              .user-display__desc
+                .user-display__name {{item.name}}
+                .user-display__pos {{item.pos}}

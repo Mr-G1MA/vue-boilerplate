@@ -38,11 +38,20 @@
       transition: 0.3s;
     }
   }
+
+  @include tablets{
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .footer__socials-icon{
   width: 21px;
   fill: rgba(255, 255, 255, 0.3);
+
+  @include tablets{
+    width: 26px;
+  }
 }
 
 .footer__socials-item{
@@ -50,5 +59,15 @@
 
   &:last-child{
     margin-right: 0;
+  }
+}
+
+.header-socials{
+  @include tablets{
+    margin-left: 25%;
+  }
+
+  @include phones{
+    display:none;
   }
 }

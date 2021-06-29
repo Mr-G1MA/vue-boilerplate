@@ -1,3 +1,10 @@
 .main-section{
   background: url("~images/bg/hero.jpg") center top / cover no-repeat;
+  @include desktop{
+    background: url("~images/bg/tablets-hero.png") center top / cover no-repeat;
+  }
+
+  @include tablets{
+    background: none;
+  }
 }

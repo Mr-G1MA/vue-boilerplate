@@ -4,4 +4,16 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 58px 0 15px;
+
+  @include tablets{
+    justify-content: flex-start;
+    
+  }
+
+}
+
+.hero{
+  @include tablets{
+    background: url("~images/bg/hero.jpg") center top / cover no-repeat;
+  }
 }

@@ -1,17 +1,55 @@
 .footer{
   background: rgba(34, 36, 39, 1);
   padding: 62px 0 74px;
+
+  @include desktop{
+    padding: 62px 3% 68px;
+  }
+
+  @include tablets{
+    padding: 62px 5% 112px;
+  }
 }
 
 .footer__container{
   display: flex;
   justify-content: space-between;
+
+  @include desktop{
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  @include tablets{
+    justify-content: space-between;
+  }
+
+  @include phones{
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .footer__copyright{
   display: flex;
-  
+  flex-direction: column;
   width: 25%;
+
+  @include desktop{
+    width: 18%;
+    margin-right: 7%;
+  }
+
+  @include tablets{
+    width: 22%;
+    margin-right: 11%;
+  }
+
+  @include phones{
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 45px;
+  }
 }
 
 .footer__copyright-year{
@@ -21,13 +59,28 @@
     color: rgba(255, 255, 255, 0.3);
     line-height: 1;
   }
+
   margin-right: 15%;
+  min-width: 163px;
+
+  @include desktop{
+    margin-right: 0;
+    margin-bottom: 28px;
+  }
+
+  @include desktop{
+    margin-bottom: 18px;
+  }
 }
 
 .footer__copyright-name{
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 28px;
+
+  @include phones{
+    margin-bottom: 10px;
+  }
 }
 
 .footer__ps{
@@ -46,6 +99,19 @@
     font-style: italic;
     font-weight: 400;
   }
+
+  @include desktop{
+    width: 40%;
+    padding-top: 6%;
+  }
+
+  @include tablets{
+    width: 100%;
+  }
+
+  @include phones{
+    padding-top: 10%;
+  }
 }
 
 .footer__content{
@@ -59,14 +125,79 @@
     color: rgba(255, 255, 255, 0.6);
     max-width: 310px;
     line-height: 2;
+
+    @include tablets{
+      max-width: none;
+      margin-bottom: 20px;
+    }
+  }
+
+  @include desktop{
+    width: 38%;
+  }
+
+  @include tablets{
+    width: 100%;
+    justify-content: flex-start;
   }
 }
 
 .footer__copyright-userinfo{
   flex-basis: 115px;
+
+  @include desktop{
+    flex-basis: auto;
+    max-width: 135px;
+  }
+
+  @include phones{
+    max-width: none;
+  }
 }
 
 .footer__copyright-text{
   color: rgba(255, 255, 255, 0.3);
   font-weight: 400;
 }
+
+.footer__content-wrapper{
+  display: flex;
+  justify-content: space-between;
+
+  @include tablets{
+    flex-direction: column;
+    width: 57%;
+  }
+
+  @include phones{
+    width: 100%;
+  }
+}
+
+.footer__menu{
+  @include tablets{
+    margin-bottom: 50px;
+  }
+
+  @include phones{
+    margin-bottom: 33px;
+  }
+}
+
+.footer__list{
+  @include tablets{
+    flex-wrap: wrap;
+    
+  }
+
+  @include phones{
+    justify-content: space-between;
+  }
+}
+
+.footer__menu-item{
+  @include tablets{
+    margin-bottom: 7px;
+  }
+}
+

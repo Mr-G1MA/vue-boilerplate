@@ -2,10 +2,20 @@
   position: absolute;
   right: 0;
   bottom: 10%;
-  width: 717px;
+  width: 85%;
   max-height: 103px;
   display: flex;
   justify-content: flex-end;
+  
+  @include desktop{
+    height: 80px;
+  }
+
+  @include phones{
+    & li{
+      display: none;
+    }
+  }
 }
 
 .roll__item{

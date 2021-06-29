@@ -17,3 +17,21 @@
     transition: 0.3s;
   }
 }
+
+.header-menu{
+  @include tablets{
+    display: none;
+  }
+}
+
+.footer__menu-item{
+  @include phones{
+    margin-right: 0;
+
+    &:nth-child(n){
+      width: 45%;
+    }
+
+    margin-bottom: 22px;
+  }
+}
