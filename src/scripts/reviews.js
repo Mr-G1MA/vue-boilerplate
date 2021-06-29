@@ -25,7 +25,12 @@ new Vue({
   },
   computed: {
     slider() {
-      return this.$refs["slider"].$swiper;
+      if (this.resizeable){
+        return this.$refs["slider"].$swiper;
+      }
+      else {
+        return this.$refs["otherSlider"].$swiper;
+      }
     },
   },
   methods: {

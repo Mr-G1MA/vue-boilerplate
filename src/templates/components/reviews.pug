@@ -22,7 +22,7 @@ script(type="text/x-template")#reviews-slider
               .user-display__desc
                 .user-display__name {{item.name}}
                 .user-display__pos {{item.pos}}
-    swiper(ref="slider" :options="otherSliderOptions" v-show="!resizeable").reviews__slider-list
+    swiper(ref="otherSlider" :options="otherSliderOptions" v-show="!resizeable").reviews__slider-list
       swiper-slide.reviews__slider-item(v-for="item in reviews" :key="item.id")
         .review 
           .review__text
