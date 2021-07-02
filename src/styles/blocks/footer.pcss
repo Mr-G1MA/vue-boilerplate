@@ -37,11 +37,11 @@
 .footer__copyright{
   display: flex;
   width: 25%;
-  margin-right: 160px;
+  margin-right: 140px;
   @include desktop{
     flex-direction: column;
     width: 18%;
-    margin-right: 3%;
+    margin-right: 7%;
   }
 
   @include tablets{
@@ -97,6 +97,9 @@
     color: rgba(255, 255, 255, 0.6);
     line-height: 2;
     margin-bottom: 30px;
+    @include desktop{
+      max-width: 440px;
+    }
   }
 
   &-author{
@@ -105,7 +108,7 @@
   }
 
   @include desktop{
-    width: 47%;
+    width: 59%;
     padding-top: 6%;
   }
 
@@ -138,11 +141,12 @@
   }
 
   @include desktop{
-    width: 47%;
+    min-width: 350px;
     margin-right: 0;
   }
 
   @include tablets{
+    min-width: unset;
     width: 100%;
     justify-content: flex-start;
   }
@@ -172,7 +176,7 @@
   width: 100%;
 
   @include desktop{
-    justify-content: flex-end;
+    justify-content: space-between;
   }
 
   @include tablets{
