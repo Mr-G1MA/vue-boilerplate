@@ -13,7 +13,6 @@ new Vue({
     return {
       reviews: [],
       activeBtn: 1,
-      num: -1,
       sliderOptions: {
         slidesPerView: 2,
         loop: false,
@@ -69,21 +68,19 @@ new Vue({
       }
       this.sliderOptions.allowSlideNext = true;
       this.sliderOptions.allowSlidePrev = true;
-      console.log(this.activeBtn);
     },
     changeParamNext (){
       this.activeBtn = 2;
       this.sliderOptions.allowSlideNext = false;
     },
     changeParamPrev (){
-      if (this.num !== -1){
+      if (this.activeBtn == 0){
         this.activeBtn = 1;
         this.sliderOptions.allowSlidePrev = false;
       }
       else{
         this.activeBtn = 1;
       }
-      this.num++;
     }
   },
   created() {
