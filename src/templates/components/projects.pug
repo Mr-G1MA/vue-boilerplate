@@ -17,7 +17,7 @@ script(type="text/x-template")#projects-current-preview
       img(:src="current.image").projects-preview__img
       previewRoll(
         :current="current",
-        :projects="sliced",
+        :projects="projects",
         @go="go",
         @goTo="goTo"
       )
@@ -33,7 +33,9 @@ script(type="text/x-template")#projects-preview-roll
       ).roll__link
         img(:src="item.image").roll__img
     projectsBtns(
-      @go="go"
+      @go="go",
+      :current="current",
+      :projects="projects"
     )
 
 script(type="text/x-template")#projects-btns
@@ -41,9 +43,11 @@ script(type="text/x-template")#projects-btns
       .slider-btns 
         button(
           @click="go('next')"
+          :class="{activeBtn: current !== projects[projects.length - 1]}"
         ).slider-btns__item.slider-btns__item-next
         button(
           @click="go('prev')"
+          :class="{activeBtn: current !== projects[0]}"
         ).slider-btns__item.slider-btns__item-prev
 
 script(type="text/x-template")#projects-text

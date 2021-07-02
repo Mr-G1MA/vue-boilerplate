@@ -3,11 +3,15 @@
   padding: 62px 0 74px;
 
   @include desktop{
-    padding: 62px 3% 68px;
+    padding: 62px 41px 68px 59px;
   }
 
   @include tablets{
     padding: 62px 5% 112px;
+  }
+
+  @include phones{
+    padding: 53px 20px 87px 31px;
   }
 }
 
@@ -17,7 +21,7 @@
 
   @include desktop{
     margin-left: 0;
-    justify-content: flex-start;
+    justify-content: space-evenly;
   }
 
   @include tablets{
@@ -32,12 +36,12 @@
 
 .footer__copyright{
   display: flex;
-  flex-direction: column;
   width: 25%;
-
+  margin-right: 160px;
   @include desktop{
+    flex-direction: column;
     width: 18%;
-    margin-right: 7%;
+    margin-right: 3%;
   }
 
   @include tablets{
@@ -86,7 +90,7 @@
 .footer__ps{
   display: flex;
   flex-direction: column;
-  width: 29%;
+  width: 40%;
   justify-content: flex-end;
 
   &-text{
@@ -101,7 +105,7 @@
   }
 
   @include desktop{
-    width: 40%;
+    width: 47%;
     padding-top: 6%;
   }
 
@@ -117,9 +121,10 @@
 .footer__content{
   display: flex;
   flex-direction: column;
-  width: 29%;
+  width: 35%;
   justify-content: space-between;
   min-height: 220px;
+  margin-right: 100px;
 
   &-text{
     color: rgba(255, 255, 255, 0.6);
@@ -133,7 +138,8 @@
   }
 
   @include desktop{
-    width: 38%;
+    width: 47%;
+    margin-right: 0;
   }
 
   @include tablets{
@@ -162,11 +168,16 @@
 
 .footer__content-wrapper{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  width: 100%;
+
+  @include desktop{
+    justify-content: flex-end;
+  }
 
   @include tablets{
     flex-direction: column;
-    width: 57%;
+    width: 65%;
   }
 
   @include phones{
@@ -197,7 +208,7 @@
 
 .footer__menu-item{
   @include tablets{
-    margin-bottom: 7px;
+    margin-bottom: 12px;
   }
 }
 

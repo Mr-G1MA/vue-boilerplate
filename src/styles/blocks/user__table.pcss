@@ -2,12 +2,20 @@
   color: rgba(255, 255, 255, 0.3);
   font-size: 16px;
   font-weight: 600;
+  @include phones{
+    width: 45%;
+    }
 }
 
 .user__table-desc{
   font-size: 16px;
   font-weight: 600;
   text-align: end;
+
+  @include phones{
+  text-align: start;
+  width: 49%;
+  }
 }
 
 .user__table{
@@ -15,6 +23,9 @@
 
   td {
     padding-bottom: 21px;
+    @include tablets{
+      padding-bottom: 12px;
+    }
   }
 
   tr:last-child td {

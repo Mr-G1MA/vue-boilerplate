@@ -12,13 +12,19 @@ new Vue({
   data() {
     return {
       reviews: [],
+      activeBtn: 1,
+      num: -1,
       sliderOptions: {
         slidesPerView: 2,
-        loop: true
+        loop: false,
+        allowSlideNext: true,
+        allowSlidePrev: true
       },
       otherSliderOptions: {
         slidesPerView: 1,
-        loop: true
+        loop: false,
+        allowSlideNext: true,
+        allowSlidePrev: true
       },
       resizeable: true
     };
@@ -56,6 +62,28 @@ new Vue({
       } else {
         this.resizeable = false;
       }
+    },
+    change(){
+      if (this.sliderOptions.allowSlideNext&&this.sliderOptions.allowSlidePrev){
+        this.activeBtn = 0;
+      }
+      this.sliderOptions.allowSlideNext = true;
+      this.sliderOptions.allowSlidePrev = true;
+      console.log(this.activeBtn);
+    },
+    changeParamNext (){
+      this.activeBtn = 2;
+      this.sliderOptions.allowSlideNext = false;
+    },
+    changeParamPrev (){
+      if (this.num !== -1){
+        this.activeBtn = 1;
+        this.sliderOptions.allowSlidePrev = false;
+      }
+      else{
+        this.activeBtn = 1;
+      }
+      this.num++;
     }
   },
   created() {

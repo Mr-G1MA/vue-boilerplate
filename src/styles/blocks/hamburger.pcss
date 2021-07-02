@@ -22,3 +22,97 @@
   border-radius: 10px;
 
 }
+
+.hamburger-wrapper{
+  position: absolute;
+  width: 100%;
+  left: 100%;
+  transition-property: background-color, left;
+  transition-delay: 0s, 0.2s;
+  transition-duration: 0.2s, 0.3s;
+  height: 100vh;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  
+  &.activeMenu{
+    left: 0;
+    background: rgba(0,0,0, 0.5);
+    transition-property: background-color, left;
+    transition-delay: 0.3s, 0s;
+    transition-duration: 0.4s, 0.3s;
+  }
+
+}
+
+.hamburger-column{
+  background: white;
+  font-size: 21px;
+  font-weight: 600;
+  color: #414C63;
+  width: 50%;
+  display: flex;
+  padding-left: 6%;
+  align-items: center;
+  position: relative;
+
+  @include phones{
+    width: 100%;
+    padding-left: 20%;
+  }
+}
+
+.hamburger-socials__icon{
+  fill: rgba(65, 76, 99, 0.7);
+  width: 29px;
+
+  &:hover{
+    fill: rgba(65, 76, 99, 1);
+    transition: 0.3s;
+  }
+}
+
+.hamburger-menu__item{
+  margin-bottom: 22px;
+
+  &:last-child{
+    margin-bottom: 0;
+  }
+
+  @include phones{
+    margin-bottom: 25px;
+  }
+}
+
+.hamburger-menu__list{
+  margin-bottom: 95px;
+
+  @include phones{
+    margin-bottom: 120px;
+  }
+}
+
+.close-elem{
+  width: 22px;
+  position: absolute;
+  top: 10%;
+  right: 17%;
+  cursor: pointer;
+  
+  @include phones{
+    top: 5%;
+    right: 9%;
+  }
+}
+
+.hamburger-close{
+  fill: rgba(65, 76, 99, 1);
+}
+
+.hamburger-socials__item {
+  margin-right: 40px;
+}
+
+.side-menu{
+  display:flex;
+}

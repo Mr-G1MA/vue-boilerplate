@@ -18,21 +18,6 @@
 
   &-prev{
     transform: rotate(180deg);
-    &:hover{
-      &:before{
-        background: svg-load('arrow-down.svg', fill=#fff, width=100%, height=100%) center center no-repeat;
-        transition: .3s;
-      }
-    }
-  }
-
-  &-next{
-    &:hover{
-      &:before{
-        background: svg-load('arrow-down.svg', fill=#fff, width=100%, height=100%) center center no-repeat;
-        transition: .3s;
-      }
-    }
   }
 
   @include desktop{
@@ -43,5 +28,12 @@
   @include phones{
     width: 60px;
     height: 60px;
+  }
+}
+
+.activeBtn{
+  &:before{
+    background: svg-load('arrow-down.svg', fill=#fff, width=100%, height=100%) center center no-repeat;
+    transition: .3s;
   }
 }

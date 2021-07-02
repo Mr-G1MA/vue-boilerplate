@@ -1,0 +1,37 @@
+script(type="text/x-template")#hamburger
+  div.side-menu
+    a(
+      @click="open"
+      ).hamburger#hamburger-link
+      span.hamburger__plank
+      span.hamburger__plank
+      span.hamburger__plank
+    hamburgerMenu(
+      :current="current"
+      @close="close"
+    )
+
+script(type="text/x-template")#hamburger-menu
+  div.container.hamburger-wrapper(
+    :class="{activeMenu: current}"
+    @click.self="close"
+  )
+    div.hamburger-column
+      .close-elem(@click="close")
+        +icon("cross", "hamburger-close")
+      div.hamburger-menu__wrapper
+        nav.menu.hamburger-menu
+          - var menuItems = ["About me", "Skills", "Projects", "Reviews"];
+          ul.hamburger-menu__list   
+            each item in menuItems
+              li.hamburger-menu__item(
+                @click="close"
+              ) 
+                a(href="#").menu__link #{item}
+
+        - var socials = ['insta', 'vk', 'github', 'envelope'];
+        ul.socials.hamburger-socials
+          each item in socials 
+            li.hamburger-socials__item 
+              a(href="#").socials__link
+                +icon(item, "hamburger-socials__icon")

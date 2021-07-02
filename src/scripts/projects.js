@@ -1,6 +1,7 @@
 import Vue from 'vue';
 
 const projectsBtns = {
+  props: ["current", "projects"],
   template: "#projects-btns",
   methods: {
     go(dir){
@@ -43,12 +44,6 @@ const currentPreview = {
     goTo(index){
       this.$emit("goTo", index);
     }
-  },
-  computed : {
-    sliced(){
-      const works = [...this.projects]
-      return works.slice(0, 4);
-    }
   }
 };
 
@@ -88,23 +83,18 @@ new Vue({
       });
     },
     go(dir){
-      const lastItem = this.projects[this.projects.length - 1];
       switch (dir) {
         case "next":
-          this.projects.push(this.projects[0]);
-          this.projects.shift();
           if (this.currentIndex + 1 >= this.projects.length){
-            this.currentIndex = 0;
+
           } 
           else{
             this.currentIndex++;
           }
           break;
         case "prev":
-          this.projects.unshift(lastItem);
-          this.projects.pop();
           if (this.currentIndex - 1 < 0){
-            this.currentIndex = this.projects.length - 1;
+
           } 
           else{
             this.currentIndex--;
@@ -113,22 +103,12 @@ new Vue({
       }
     },
     goTo(index){
-      while (index > 0){
-        this.projects.push(this.projects[0]);
-        this.projects.shift();
-        if (this.currentIndex + 1 >= this.projects.length){
-          this.currentIndex = 0;
-        } 
-        else{
-          this.currentIndex++;
-        }
-        index--;
-      }
+      this.currentIndex = index;
     }
   },
   computed: {
     current(){
-      return this.projects[0];
+      return this.projects[this.currentIndex];
     }
   },
   created(){

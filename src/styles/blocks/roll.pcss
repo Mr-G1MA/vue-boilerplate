@@ -20,10 +20,15 @@
 
 .roll__item{
   max-width: 178px;
-  transition: .2s;
+  position: relative;
+
+  
+
   &.active,
   &:hover {
-    border: 3px solid #f29400;
+    outline: 3px solid #f29400;
+    transition: outline .15s;
+    z-index: 10;
   }
 }
 

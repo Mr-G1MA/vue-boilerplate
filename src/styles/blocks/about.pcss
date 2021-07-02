@@ -8,7 +8,8 @@
   }
 
   @include tablets{
-    padding: 3% 0 11%;
+    padding: 12px 12px 11% 30px;
+    width: 100%;
   }
 
   @include phones{
@@ -57,6 +58,10 @@
   margin-bottom: 43px;
   color: white;
   line-height: 1;
+
+  @include tablets {
+    font-size: 30px;
+  }
 }
 
 .about__ps {
@@ -85,6 +90,10 @@
 .about__text{ 
   margin-bottom: 80px;
   line-height: 190%;
+
+  @include tablets{
+    width: 85%;
+  }
 }
 
 .about{
