@@ -9,9 +9,9 @@
     <div v-else class="title">
       <div class="input">
         <app-input
-          placeholder="Название новой группы"
+          placeholder="New group"
           :value="value"
-          :errorText="errorText"
+          :errorMessage="errorText"
           @input="$emit('input', $event)"
           @keydown.native.enter="onApprove"
           autofocus="autofocus"
@@ -41,20 +41,30 @@ export default {
       type: String,
       default: ""
     },
+    editModeDefault: Boolean,
     blocked: Boolean
   },
   data() {
     return {
-      editmode: false,
-      title: this.value
+      editmode: this.editModeDefault,
+      title: this.value,
     };
   },
   methods: {
     onApprove() {
       if (this.title.trim() === this.value.trim()) {
-        this.editmode = false;
+        if (this.title.trim().length !== 0){
+          this.editmode = false;
+        }
+        else{
+          this.errorText = "This field must be filled";
+        }
       } else {
         this.$emit("approve", this.value);
+      }
+
+      if (this.value.trim().length == 0){
+        this.errorText = "This field must be filled";
       }
     }
   },

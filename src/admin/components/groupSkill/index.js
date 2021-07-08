@@ -1,0 +1,1 @@
+export {default} from "./groupSkill.vue";

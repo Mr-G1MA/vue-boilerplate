@@ -1,0 +1,47 @@
+.groupSkill-component{
+  display: flex;
+  align-items: center;
+  color: #373E42;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.groupSkill__buttons{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.groupSkill__title{
+  width: 70%;
+}
+
+.groupSkill-btn{
+  margin-right: 20px;
+
+  &:last-child{
+    margin-right: 0;
+  }
+}
+
+
+.groupSkill__percent{
+  margin-left: auto;
+  width: 11%;
+  &.percent-symbol{
+    position: relative;
+    &:after{
+      content:"%";
+      position: absolute;
+      display: block;
+      font-size: 16px;
+      font-weight: 400;
+      right: 5%;
+      top: 0;
+    }
+  }
+}
+
+.active-title{
+  width: 68%;
+}

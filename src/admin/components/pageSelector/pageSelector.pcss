@@ -1,0 +1,67 @@
+.pageSelector-component{
+  background: white;
+}
+
+.pageSelector-list{
+  display: flex;
+}
+
+.pageSelector-link{
+  padding: 30px;
+  font-size: 16px;
+  font-weight: 400;
+  display: block;
+  color: #414C63;
+  position: relative;
+
+  &:after{
+    content: "";
+    position: absolute;
+    background: #383BCF;
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    right: 0;
+  }
+
+  &:before{
+    content: "";
+    position: absolute;
+    background: #383BCF;
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    right: 0;
+    transform:  translateX(-99%);
+  }
+
+  &:hover{
+    color: #383BCF;
+    font-weight: 600;
+    &:after{
+      width: 50%;
+      transition: width .3s;
+    }
+
+    &:before{
+      width: 50%;
+      transition: width .3s;
+    }
+  }
+}
+
+.pageSelector-item.active .pageSelector-link{
+  color: #383BCF;
+  font-weight: 600;
+  &:after{
+    width: 50%;
+    transition: width .3s;
+  }
+
+  &:before{
+    width: 50%;
+    transition: width .3s;
+  }
+}
