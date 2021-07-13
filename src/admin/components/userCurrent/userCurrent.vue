@@ -13,7 +13,7 @@ export default {
   },
   computed: {
     avatarImg(){
-      return "./" + userPng;
+      return "../" + userPng;
     }
   }
 }
