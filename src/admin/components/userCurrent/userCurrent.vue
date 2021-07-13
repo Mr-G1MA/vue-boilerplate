@@ -5,6 +5,7 @@
   </div>
 </template>
 <script>
+import userPng from "../../../images/content/user.png";
 import avatar from "../avatar";
 export default {
   components: {
@@ -12,7 +13,7 @@ export default {
   },
   computed: {
     avatarImg(){
-      return require("../../../images/content/user.png").default;
+      return userPng;
     }
   }
 }

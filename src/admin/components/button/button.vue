@@ -7,6 +7,10 @@
 </template>
 
 <script>
+import def from './types/defaultBtn';
+import squar from './types/squareBtn';
+import ico from './types/iconedBtn';
+import roun from './types/roundBtn';
 export default {
   props: {
     type: {
@@ -15,10 +19,10 @@ export default {
     }
   },
   components: {
-    default: () => import("./types/defaultBtn"),
-    square: () => import("./types/squareBtn"),
-    iconed: () => import("./types/iconedBtn"),
-    round: () => import("./types/roundBtn"),
+    default: def,
+    square: squar,
+    iconed: ico,
+    round: roun,
   }
 }
 </script>
