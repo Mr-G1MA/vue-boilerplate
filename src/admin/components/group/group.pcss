@@ -1,3 +1,5 @@
+@import "../../../styles/mixins.pcss";
+
 .group-skills__item{
   margin-bottom: 25px;
   
@@ -9,5 +11,9 @@
 .add-skill-component{
   padding-top: 70px;
   margin-top: auto;
-  padding-left: 25%;
+  padding-left: 22%;
+
+  @include tablets{
+    padding-left: 0;
+  }
 }

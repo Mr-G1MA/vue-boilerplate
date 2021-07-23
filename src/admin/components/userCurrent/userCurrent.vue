@@ -19,11 +19,18 @@ export default {
 }
 </script>
 <style lang="postcss" scoped>
+  @import "../../../styles/mixins.pcss";
+
   .userCurrent-component{
     display: flex;
     font-size: 18px;
     font-weight: 600;
     align-items: center;
+
+    @include phones{
+      position: absolute;
+      align-items: end;
+    }
   }
 
   .user-name{

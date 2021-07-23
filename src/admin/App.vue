@@ -1,47 +1,29 @@
 <template lang="pug">
   .app-container
-    headLine
-      userCurrent
-    pageSelector
-    .page-content-wrapper
-      .page-content
-        .container
-          .page-content__header
-            .page-content__title Page "About"
-            iconedBtn(type="iconed" title="Add group" v-if="emptyGroup == false" @click="emptyGroup = true")
-          ul.groups
-            li.groups__item(v-if="emptyGroup")
-              group(@remove="emptyGroup = false" empty)
-            li.groups__item(v-for="item in groups" :key="item.id")
-              group(
-                :title="item.group" 
-                :skillsArray="item.skills"
-              )
+    router-view(name="header")
+    router-view
+    .notification-container(:class="{active: notificationShow}")
+      notification(:text="notificationMsg" :type="notificationType" @click="hideNotificationAction")
 </template>
-
 <script>
-import headLine from "./components/headLine";
-import userCurrent from "./components/userCurrent";
-import pageSelector from "./components/pageSelector";
-import button from "./components/button";
-import group from "./components/group";
+import notification from "./components/notification";
+import { mapActions, mapState } from 'vuex';
 
 export default {
-  data() {
-    return {
-      groups: [],
-      emptyGroup: false,
-    }
+  components: {
+    notification
   },
-  created() {
-    this.groups = require("./data/groups.json");
+  methods: {
+    ...mapActions({
+      hideNotificationAction : "notification/hide"
+    })
   },
-  components : {
-    headLine,
-    userCurrent,
-    pageSelector,
-    iconedBtn: button,
-    group,
+  computed : {
+    ...mapState("notification", {
+      notificationShow : state => state.show,
+      notificationMsg : state => state.msg,
+      notificationType : state => state.type
+    })
   }
 }
 </script>

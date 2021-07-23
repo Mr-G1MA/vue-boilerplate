@@ -3,7 +3,7 @@
     <div class="container pageSelector-container">
       <ul class="pageSelector-list">
         <li :class="['pageSelector-item', {active: link.active}]" v-for="link in links" :key="link.id">
-          <a :href="`/${link.alias}`" class="pageSelector-link">{{link.title}}</a>
+          <a @click.prevent="goTo(link.alias)" class="pageSelector-link">{{link.title}}</a>
         </li>
       </ul>
     </div>
@@ -21,6 +21,32 @@ export default {
     return {
       links
     }
+  },
+  methods: {
+    goTo(link){
+      this.$router.replace(`/${link}`);
+      links.map(item => {
+        if (item.alias == link){
+          item.active = true;
+        }
+        else {
+          item.active = false;
+        }
+        return item;
+      });
+    }
+  },
+  created() {
+    let str = this.$router.history.current.path;
+    str = str.replace(/[^a-zа-яё]/gi, '');
+    links.map(item => {
+      if (item.alias == str){
+        item.active=true;
+      }
+      else {
+        item.active=false;
+      }
+    })
   },
 }
 </script>

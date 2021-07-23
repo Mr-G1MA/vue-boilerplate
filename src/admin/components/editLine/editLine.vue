@@ -1,9 +1,9 @@
 <template>
   <div class="edit-line-component" :class="{'blocked' : blocked}">
-    <div class="title" v-if="editmode === false">
+    <div class="title" v-if="currentInput.editmode === false">
       <div class="text">{{value}}</div>
       <div class="icon">
-        <icon symbol="pencil" grayscale @click="editmode = true"></icon>
+        <icon symbol="pencil" grayscale @click="currentInput.editmode = true"></icon>
       </div>
     </div>
     <div v-else class="title">
@@ -11,7 +11,7 @@
         <app-input
           placeholder="New group"
           :value="value"
-          :errorMessage="errorText"
+          :errorMessage="errorMsg"
           @input="$emit('input', $event)"
           @keydown.native.enter="onApprove"
           autofocus="autofocus"
@@ -23,7 +23,7 @@
           <icon symbol="tick" @click="onApprove"></icon>
         </div>
         <div class="button-icon">
-          <icon symbol="cross" @click="$emit('remove')"></icon>
+          <icon symbol="trash" @click="$emit('remove')"></icon>
         </div>
       </div>
     </div>
@@ -46,25 +46,31 @@ export default {
   },
   data() {
     return {
-      editmode: this.editModeDefault,
-      title: this.value,
+      currentInput : {
+        editmode: this.editModeDefault,
+        title: this.value
+      },
+      errorMsg: this.errorText
     };
   },
+  watch : {
+    value : function (val){
+      this.errorMsg = "";
+    }
+  },
   methods: {
-    onApprove() {
-      if (this.title.trim() === this.value.trim()) {
-        if (this.title.trim().length !== 0){
-          this.editmode = false;
+    async onApprove() {
+      if (this.currentInput.title.trim() === this.value.trim()) {
+        if (this.currentInput.title.trim().length !== 0){
+          this.currentInput.editmode = false;
         }
         else{
-          this.errorText = "This field must be filled";
+          this.errorMsg = "Must be filled";
         }
+      } else if (this.value.trim().length == 0){
+        this.errorMsg = "Must be filled";
       } else {
-        this.$emit("approve", this.value);
-      }
-
-      if (this.value.trim().length == 0){
-        this.errorText = "This field must be filled";
+        this.$emit("approve", [this.currentInput, this.value]);
       }
     }
   },

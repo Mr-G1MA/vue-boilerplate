@@ -1,4 +1,7 @@
 import Vue from 'vue';
+import axios from 'axios';
+
+axios.defaults.baseURL = "https://webdev-api.loftschool.com/";
 
 const projectsBtns = {
   props: ["current", "projects"],
@@ -47,41 +50,23 @@ const currentPreview = {
   }
 };
 
-const projectsText = {
-  props: ["current"],
-  template: "#projects-text",
-  components: {
-    Tags,
-  },
-  computed: {
-    tagsArr(){
-      return this.current.skills.split(",");
-    }
-  }
-}
-
 
 new Vue({
   el: "#projects-component",
   template: "#projects",
   components: {
     currentPreview,
-    projectsText,
+    Tags,
   },
   data() {
     return{
       projects : [],
-      currentIndex: 0
+      currentIndex: 0,
+      tagsRes : [],
+      current : {}
     }
   },
   methods: {
-    requireImagesToArray(projectsArr) {
-      return projectsArr.map((item) => {
-        const requiredImage = require(`../images/content/${item.image}`).default;
-        item.image = requiredImage;
-        return item;
-      });
-    },
     go(dir){
       switch (dir) {
         case "next":
@@ -106,13 +91,18 @@ new Vue({
       this.currentIndex = index;
     }
   },
-  computed: {
-    current(){
-      return this.projects[this.currentIndex];
+  watch : {
+    currentIndex : {
+      handler(val){
+        this.tagsRes = this.projects[this.currentIndex].techs.split(",");
+        this.current = this.projects[this.currentIndex];
+      }
     }
   },
-  created(){
-    const projectsArr = require("../data/projects.json");
-    this.projects = this.requireImagesToArray(projectsArr);
+  async beforeMount(){
+    const { data } = await axios.get("/works/484");
+    this.projects = data;
+    this.tagsRes = this.projects[0].techs.split(",");
+    this.current = this.projects[0];
   }
 })

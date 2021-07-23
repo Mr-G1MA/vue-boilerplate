@@ -1,3 +1,5 @@
+@import "../../../styles/mixins.pcss";
+
 .groupSkill-component{
   display: flex;
   align-items: center;
@@ -9,11 +11,15 @@
 .groupSkill__buttons{
   display: flex;
   align-items: center;
-  margin-left: auto;
+  margin-left: 25px;
 }
 
 .groupSkill__title{
   width: 70%;
+
+  @include phones{
+    width: 40%;
+  }
 }
 
 .groupSkill-btn{
@@ -26,7 +32,7 @@
 
 
 .groupSkill__percent{
-  margin-left: auto;
+  margin: auto;
   width: 11%;
   &.percent-symbol{
     position: relative;
@@ -38,7 +44,19 @@
       font-weight: 400;
       right: 5%;
       top: 0;
+
+      @include tablets{
+        right: 0;
+      }
     }
+  }
+
+  @include tablets{
+    width: 23%;
+  }
+
+  @include phones{
+    width: 15%;
   }
 }
 

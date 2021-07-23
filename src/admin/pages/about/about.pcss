@@ -1,0 +1,75 @@
+@import "../../../styles/mixins.pcss";
+
+.page-content__header{
+  display: flex;
+  margin-bottom: 54px;
+
+  @include phones{
+    flex-direction: column;
+    margin-left: 6%;
+  }
+}
+
+.page-content__title{
+  font-size: 22px;
+  font-weight: 700;
+  color: #414C63;
+  margin-right: 55px;
+
+  @include phones{
+    margin-bottom: 25px;
+  }
+}
+
+.page-content{
+  flex:1;
+  padding: 50px 0;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.page-content-wrapper{
+  background: url("../../../images/bg/admin-panel.png") center top / cover no-repeat;
+  flex:1;
+  display: flex;
+  flex-direction: column;
+}
+
+.groups{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+
+  @include phones{
+    flex-direction: column;
+  }
+}
+
+.about-container{
+  @include phones{
+    width: 100%;
+  }
+}
+
+.groups__item{
+  width: 49%;
+  margin-bottom: 25px;
+  min-height: 390px;
+  @include phones{
+    width: 100%;
+  }
+}
+
+.about-page-component{
+  flex:1;
+  display: flex;
+  flex-direction: column;
+}
+
+.error-tooltip{
+  position: absolute;
+  bottom: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  color: red;
+}

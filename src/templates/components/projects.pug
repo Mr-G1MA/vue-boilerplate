@@ -7,14 +7,21 @@ script(type="text/x-template")#projects
       @go="go",
       @goTo="goTo"
     )
-    projectsText(
-      :current="current"
-    )
+    .projects-preview__info
+      Tags(
+        :tags="tagsRes"
+      )
+      .projects-preview__title {{current.title}}
+      .projects-preview__desc 
+        p {{current.description}}
+      .projects-preview__link
+        +icon("link", "projects-preview__link-img")
+        a(:href="current.link").link Посмотреть сайт
 
 script(type="text/x-template")#projects-current-preview
   .projects-preview__pictures
     .projects-preview__pictures-content
-      img(:src="current.image").projects-preview__img
+      img(:src="`https://webdev-api.loftschool.com/${current.photo}`").projects-preview__img
       previewRoll(
         :current="current",
         :projects="projects",
@@ -31,7 +38,7 @@ script(type="text/x-template")#projects-preview-roll
       a(
         @click="goTo(index)"
       ).roll__link
-        img(:src="item.image").roll__img
+        img(:src="`https://webdev-api.loftschool.com/${item.photo}`").roll__img
     projectsBtns(
       @go="go",
       :current="current",
@@ -49,18 +56,6 @@ script(type="text/x-template")#projects-btns
           @click="go('prev')"
           :class="{activeBtn: current !== projects[0]}"
         ).slider-btns__item.slider-btns__item-prev
-
-script(type="text/x-template")#projects-text
-  .projects-preview__info
-    Tags(
-      :tags="tagsArr"
-    )
-    .projects-preview__title {{current.title}}
-    .projects-preview__desc 
-      p {{current.text}}
-    .projects-preview__link
-      +icon("link", "projects-preview__link-img")
-      a(:href="current.link").link Посмотреть сайт
 
 script(type="text/x-template")#projects-tags
   ul.tags

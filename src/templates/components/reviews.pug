@@ -20,10 +20,10 @@ script(type="text/x-template")#reviews-slider
             .user-display
               .user-display__avatar
                 .user-display__avatar-style
-                  img(:src="item.image").user__avatar-img
+                  img(:src="`https://webdev-api.loftschool.com/${item.photo}`").user__avatar-img
               .user-display__desc
-                .user-display__name {{item.name}}
-                .user-display__pos {{item.pos}}
+                .user-display__name {{item.author}}
+                .user-display__pos {{item.occ}}
     swiper(ref="otherSlider" :options="otherSliderOptions" v-show="!resizeable" @reachBeginning="changeParamPrev" @slideChange="change" @reachEnd="changeParamNext").reviews__slider-list
       swiper-slide.reviews__slider-item(v-for="item in reviews" :key="item.id")
         .review 
@@ -33,7 +33,7 @@ script(type="text/x-template")#reviews-slider
             .user-display
               .user-display__avatar
                 .user-display__avatar-style
-                  img(:src="item.image").user__avatar-img
+                  img(:src="`https://webdev-api.loftschool.com/${item.photo}`").user__avatar-img
               .user-display__desc
-                .user-display__name {{item.name}}
-                .user-display__pos {{item.pos}}
+                .user-display__name {{item.author}}
+                .user-display__pos {{item.occ}}

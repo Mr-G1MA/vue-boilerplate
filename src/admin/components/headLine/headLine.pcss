@@ -1,8 +1,14 @@
+@import "../../../styles/mixins.pcss";
+
 .title{
   font-weight: 400;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
   margin-left: 30px;
+
+  @include phones{
+    display: none;
+  }
 }
 
 .headLine-component{
@@ -17,6 +23,11 @@
 
 .buttons{
   margin-left: auto;
+
+  @include phones{
+    margin-left: 61px;
+    margin-top: 24px;
+  }
 }
 
 .headline-escape-btn{
@@ -27,5 +38,9 @@
   &:hover{
     text-decoration: underline;
     transition: .3s;
+  }
+
+  @include phones{
+    text-decoration: underline;
   }
 }

@@ -1,0 +1,230 @@
+@import "../../../styles/mixins.pcss";
+
+.page-content__header{
+  display: flex;
+  margin-bottom: 54px;
+}
+
+.reviews-page-component{
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content-wrapper{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.page-content__title{
+  font-size: 22px;
+  font-weight: 700;
+  color: #414C63;
+  margin-right: 55px;
+
+  @include phones{
+    margin-left: 23px;
+  }
+}
+
+.page-content{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 50px 0;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.page-content-wrapper{
+  background: url("../../../images/bg/admin-panel.png") center top / cover no-repeat;
+  height: 100%;
+}
+
+.reviews-page-component{
+  flex:1;
+}
+
+.editing-card{
+  margin-bottom: 30px;
+}
+
+.edit-review-title{
+  color: #414C63;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.editing-block-wrapper{
+  display: flex;
+
+  @include phones{
+    flex-direction: column;
+  }
+}
+
+.upload-img-block{
+  display: flex;
+  flex-direction: column;
+  margin-right: 32px;
+  align-items: center;
+
+  @include phones{
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+}
+
+.user-avatar-preview-wrapper{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #DEE4ED;
+  background-image: url("../../../images/content/userDefault.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 25px;
+
+  &.errorImg{
+    border: 2px dashed red;
+    position: relative;
+    &::after{
+      content: "Upload photo!";
+      position: absolute;
+      bottom: 100%;
+      font-size: 18px;
+      font-weight: 700;
+      color: red;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @include phones{
+    margin-bottom: 15px;
+  }
+}
+
+.user-avatar-preview{
+  width: 100%;
+  border-radius: 50%;
+}
+
+.editing-block{
+  display: flex;
+  flex-direction: column;
+  flex: 0.8;
+
+  @include tablets{
+    flex:1;
+  }
+}
+
+.author-row{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+  @include tablets{
+    flex-direction: column;
+  }
+}
+
+.edit-author-input{
+  flex: 0.43;
+
+  @include tablets{
+    margin-bottom: 35px;
+    width: 70%;
+  }
+
+  @include phones{
+    width: 100%;
+  }
+}
+
+.reviews-container{
+  @include phones{
+    width: 100%;
+  }
+}
+
+.edit-post-input{
+  flex: 0.43;
+
+  @include tablets{
+    width: 70%;
+  }
+
+  @include phones{
+    width: 100%;
+  }
+}
+
+.edit-info-input{
+  margin-bottom: 35px;
+}
+
+.editing-block-btns{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.reviews-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.review-item{
+  width: 30%;
+  min-height: 385px;
+  position: relative;
+  margin-right: 5%;
+  margin-bottom: 28px;
+
+  &:nth-child(3n){
+    margin-right: 0;
+  }
+
+  @include tablets{
+    width: 49%;
+    margin-right: 2%;
+    &:nth-child(3n){
+      margin-right: 2%;
+    }
+    &:nth-child(2n){
+      margin-right: 0;
+    }
+  }
+
+  @include phones{
+    width: 100%;
+    margin-right: 0;
+    &:nth-child(3n){
+      margin-right: 0;
+    }
+    &:nth-child(2n){
+      margin-right: 0;
+    }
+  }
+}
+
+.add-review-btn{
+  @include phones{
+    width: 100%;
+    margin-right: 0;
+    min-height: 120px;
+    margin-bottom: 10px;
+  } 
+}
+
+.apply{
+  @include phones{
+    flex: 0.5;
+  }
+}
+
+.cancel{
+  @include phones{
+    flex: 0.5;
+  }
+}

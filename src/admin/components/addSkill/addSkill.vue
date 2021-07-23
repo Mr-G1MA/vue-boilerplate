@@ -1,7 +1,7 @@
 <template lang="pug">
   div(:class="['addSkill-component', {block: block}]")
-    addInput(:value="valueTitle" :errorMessage="errorMsgTitle" noSidePaddings placeHolder="New Skill").new-skill-input
-    addInput(:value="valuePercent" :errorMessage="errorMsgPercent" type="number" min="0" max="100" maxlength="3").percent-input
+    addInput(v-model="skill.title" :errorMessage="errorMsgTitle" noSidePaddings placeHolder="New Skill").new-skill-input
+    addInput(v-model="skill.percent" :errorMessage="errorMsgPercent" type="number" min="0" max="100" maxlength="3").percent-input
     iconedBtn(type="iconed" title="" @click="valid").add-btn
 </template>
 
@@ -12,29 +12,30 @@ import button from "../button";
 export default {
   data() {
     return {
-      title: this.value,
-      errorMsgTitle: this.errorTextTitle,
-      errorMsgPercent: this.errorTextPercent
+      skill : {
+        title : "",
+        percent : ""
+      },
+      errorMsgTitle : "",
+      errorMsgPercent: ""
+    }
+  },
+  watch : {
+    skill : {
+      handler(val){
+        if (val.title.trim().length !== 0){
+          this.errorMsgTitle = "";
+        }
+
+        if (val.percent.trim().length !== 0){
+          this.errorMsgPercent = "";
+        }
+      },
+      deep: true
     }
   },
   props: {
     block: Boolean,
-    valueTitle: {
-      type: String,
-      default: ""
-    },
-    errorTextTitle: {
-      type: String,
-      default: ""
-    },
-    valuePercent: {
-      type: String,
-      default: ""
-    },
-    errorTextPercent: {
-      type: String,
-      default: ""
-    }
   },
   components:{
     iconedBtn: button,
@@ -42,25 +43,33 @@ export default {
   },
   methods: {
     valid(){
-      if (this.valueTitle.trim().length == 0){
-        this.errorMsgTitle = "This field must be filled";
+      if (!this.skill.title.trim().length){
+        this.errorMsgTitle = "Must be filled!";
       }
-      else if (this.valuePercent.trim().length == 0){
-        this.errorMsgPercent = "This field must be filled";
+      else if (!this.skill.percent.trim().length){
+        this.errorMsgPercent = "Must be filled!";
+      }
+      else if (JSON.parse(this.skill.percent)> 100){
+        this.errorMsgPercent = "Must be less than 100!";
       }
       else {
-        this.$emit("addSkill", this.value);
+        this.$emit("addSkill", this.skill);
       }
 
-      if ((this.valueTitle.trim().length == 0)&&(this.valuePercent.trim().length == 0)){
-        this.errorMsgTitle = "This field must be filled";
-        this.errorMsgPercent = "This field must be filled";
+      if (!this.skill.percent.trim().length&&!this.skill.title.trim().length){
+        this.errorMsgTitle = "Must be filled!";
+        this.errorMsgPercent = "Must be filled!";
+      }
+      else if (!this.skill.title.trim().length&&JSON.parse(this.skill.percent)> 100){
+        this.errorMsgTitle = "Must be filled!";
+        this.errorMsgPercent = "Must be less than 100!";
       }
     }
   },
 }
 </script>
 <style lang="postcss">
+  @import "../../../styles/mixins.pcss";
   .addSkill-component{
     display: flex;
     align-items: center;
@@ -84,10 +93,14 @@ export default {
   }
   .new-skill-input{
     width: 60%;
+    @include tablets{
+      width: 45%;
+    }
   }
 
   .percent-input{
     margin: auto;
+    width: 17%;
     position: relative;
     color: #414C63;
     &:after{
@@ -112,6 +125,10 @@ export default {
         display: none;
       }
     }
+
+    @include tablets{
+      width: 22%;
+    }
   }
 
   .add-btn{
@@ -122,6 +139,7 @@ export default {
       line-height: 36px !important;
       font-size: 35px;
       font-weight: 400;
+      margin-right: 0 !important; 
     }
   }
   

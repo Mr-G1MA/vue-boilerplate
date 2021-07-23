@@ -1,9 +1,21 @@
+@import "../../../styles/mixins.pcss";
+
 .pageSelector-component{
   background: white;
 }
 
+.pageSelector-container{
+  @include phones{
+    width: 95%;
+  }
+}
+
 .pageSelector-list{
   display: flex;
+
+  @include phones{
+    justify-content: center;
+  }
 }
 
 .pageSelector-link{
