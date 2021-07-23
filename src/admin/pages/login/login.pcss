@@ -1,3 +1,5 @@
+@import "../../../styles/mixins.pcss";
+
 .login-wrapper{
   flex: 1;
   width: 100%;
@@ -13,6 +15,11 @@
   justify-content: center;
   align-items: center;
   background: rgba(45, 60, 78, 0.9);
+
+  @include phones{
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .login{
@@ -23,6 +30,13 @@
   align-items: center;
   min-width: 565px;
   position: relative;
+
+  @include phones{
+    flex: 1;
+    padding: 0 30px;
+    min-width: unset;
+    width: 100%;
+  }
 }
 
 .login__title{
@@ -43,6 +57,10 @@
 
 .login__btn{
   padding: 22px 120px;
+
+  @include phones{
+    width: 100%;
+  }
 }
 
 .form{
@@ -50,6 +68,10 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+
+  @include phones{
+    margin: auto;
+  }
 }
 
 .error-tooltip{
