@@ -97,7 +97,7 @@ export default {
       showNotificationAction: "notification/show",
       addReviewAction : "reviews/add",
       editReviewAction : "reviews/edit",
-      getReviewAction : "reviews/get"
+      getReviewAction : "reviews/get",
     }),
     uploadImg(event){
       event.preventDefault();
@@ -109,7 +109,6 @@ export default {
 
       this.currentReview.photo = file;
       this.renderPhoto(file);
-      console.log(this.currentReview);
     },
     renderPhoto(img){
       const reader = new FileReader();

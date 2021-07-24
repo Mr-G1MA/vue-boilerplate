@@ -41,7 +41,6 @@ export default {
     }),
     async deleteReview(review){
       try{
-        console.log(review);
         await this.deleteReviewAction(review);
         this.showNotificationAction({
           msg : "Review deleted!",
